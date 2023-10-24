@@ -1,23 +1,14 @@
-/**
- * Launcher
- * =====================
- *
- * @contributors: Francesco Maida [@edge33] <francescomaida91@gmail.com> (https://edge33.github.io)
- *
- * @license: MIT License
- *
- */
-import bot from "./telegraf";
-import config from "@configs/config";
-import fs from "fs";
-import localtunnel from "localtunnel";
+import bot from './telegraf';
+import config from '@config';
+import fs from 'fs';
+import localtunnel from 'localtunnel';
 
 const launchPolling = (): void => {
 	bot.launch();
 };
 
 const launchSelfSigned = async (webhookUrl: string, secretPath: string) => {
-	const { port } = config.webhook;
+	const { port, domain } = config.webhook;
 	const path = `${process.cwd()}/certs`;
 	const cert = fs.readFileSync(`${path}/PUBLIC.pem`);
 	const pk = fs.readFileSync(`${path}/PK.key`);
@@ -27,9 +18,10 @@ const launchSelfSigned = async (webhookUrl: string, secretPath: string) => {
 	};
 	await bot.launch({
 		webhook: {
+			port,
+			domain,
 			tlsOptions,
 			hookPath: secretPath,
-			port: port,
 		},
 	});
 	bot.telegram.setWebhook(`${webhookUrl}${secretPath}`, {
@@ -43,9 +35,9 @@ const launchLocalTunnel = async (secretPath: string, port: number) => {
 	const tunnel = await localtunnel({ port });
 	bot.launch({
 		webhook: {
+			port,
 			domain: tunnel.url,
 			hookPath: secretPath,
-			port: port,
 		},
 	});
 };
@@ -65,9 +57,9 @@ const launchWebhook = async (): Promise<void> => {
 	} else {
 		return bot.launch({
 			webhook: {
+				port,
 				domain: webhookUrl,
 				hookPath: secretPath,
-				port: port,
 			},
 		});
 	}

@@ -1,9 +1,8 @@
 {
-	"contributions": {
-		"language": "English",
-		"license": "CC BY 4.0",
-		"contributors": ["Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)"]
-	},
-	"app_name": "node-telegram-bot-boilerplate",
-	"hello": "Hello World!"
+	"language": "English",
+	"app_name": "umnozavrfirstbot",
+	"hello": "Hello!",
+	"welcome_message": "Welcome {name}! Click the button to open our website:",
+	"welcome_button": "Visit website",
+	"unauthorized_error_message": "You have no access to /{command} command. If you think it is a mistake, use /report command"
 }

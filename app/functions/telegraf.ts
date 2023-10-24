@@ -1,14 +1,5 @@
-/**
- * Telegraf
- * =====================
- *
- * @contributors: Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)
- *
- * @license: MIT License
- *
- */
-import { Telegraf } from "telegraf";
-import configs from "@configs/config";
+import { Telegraf } from 'telegraf';
+import configs from '@config';
 
 const bot = new Telegraf(configs.telegram.token);
 

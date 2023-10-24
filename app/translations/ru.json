@@ -1,0 +1,8 @@
+{
+	"language": "Русский",
+	"app_name": "umnozavrfirstbot",
+	"hello": "Здравствуйте, {name} !",
+	"welcome_message": "Добро пожаловать {name}! Нажмите кнопку чтобы перейти на наш сайт:",
+	"welcome_button": "Перейти на сайт",
+	"unauthorized_error_message": "У вас нет доступа к /{command} команде. Если вы думаете что это ошибка, используйте команду /report"
+}
