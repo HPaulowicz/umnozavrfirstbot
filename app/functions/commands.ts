@@ -50,23 +50,18 @@ const commands = async (): Promise<void> => {
 
 // command: /adminhello
 const adminCommands = async (): Promise<void> => {
-	const admins = await dataSource.query(
-		"SELECT telegram_id, permissions, valid_from, valid_to FROM admins WHERE (valid_to > CURRENT_TIMESTAMP OR valid_to IS NULL) AND valid_from <= CURRENT_TIMESTAMP AND deleted_at IS NULL",
-	);
-	const adminsMap = new Map();
-	for (const i in admins) {
-		adminsMap.set(admins[i].telegram_id, admins[i]);
-	}
-
-	const hasPermissions = (ctx: any, next: any) => {
+	const hasPermissions = async (ctx: any, next: any) => {
 		const {
 			command,
 			message: {
 				from: { id, language_code },
 			},
 		} = ctx;
-		const adminObject = adminsMap.get(`${id}`);
-		if (adminObject && adminObject.permissions.includes(command)) {
+		const [ admin ] = await dataSource.query(
+			"SELECT telegram_id, permissions, valid_from, valid_to FROM admins WHERE telegram_id = $1 AND (valid_to > CURRENT_TIMESTAMP OR valid_to IS NULL) AND valid_from <= CURRENT_TIMESTAMP AND deleted_at IS NULL",
+			[ id ]
+		);
+		if (admin && admin.permissions.includes(command)) {
 			next();
 		} else {
 			ctx.reply(translate("unauthorized_error_message", { command }, language_code));
