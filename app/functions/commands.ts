@@ -4,7 +4,7 @@ import bot from "./telegraf";
 import config from "../config";
 import translate from "../i18n/translations";
 import dataSource from "./database";
-import { launchPolling, launchWebhook } from "./launcher";
+import { launchPolling } from "./launcher";
 
 // command: /quit
 const commands = async (): Promise<void> => {
@@ -115,14 +115,7 @@ const adminCommands = async (): Promise<void> => {
 	});
 };
 
-const launch = async (): Promise<void> => {
-	const mode = config.mode;
-	if (mode === "webhook") {
-		launchWebhook();
-	} else {
-		launchPolling();
-	}
-};
+const launch = async (): Promise<void> => launchPolling();
 
 export { launch, commands, adminCommands };
 export default launch;

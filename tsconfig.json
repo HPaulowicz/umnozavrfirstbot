@@ -15,7 +15,8 @@
 		"allowJs": true,
 		"strict": true,
 		"strictNullChecks": true,
-		"strictFunctionTypes": true,
+		"strictFunctionTypes": false,
+		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"paths": {
 			"@translations/*": ["./app/translations/*"],
@@ -28,6 +29,6 @@
 			{ "transform": "typescript-transform-paths", "afterDeclarations": true }
 		]
 	},
-	"include": ["app/**/*"],
-	"exclude": ["node_modules/*", "dist/*", "scripts/*", "client/*"]
+	"include": ["app/**/*", "migrations/*"],
+	"exclude": ["node_modules", "dist", "scripts", "client"]
 }
