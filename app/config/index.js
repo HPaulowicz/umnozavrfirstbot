@@ -1,22 +1,15 @@
 module.exports = {
 	fallbackLanguageCode: "en",
 	server: {
-		port: 5000,
+		port: process.env.SERVER_PORT || 5000,
 	},
-	homepage: "https://umnozavrfirstbot-94768409a996.herokuapp.com",
+	homepage: process.env.HOMEPAGE || "https://umnozavrfirstbot-94768409a996.herokuapp.com",
 	jwtsecret: process.env.JWT_SECRET || "ILAGdv%AAEdIc3zlfbTE6NLGDShrzQdK8Tk7ndk9w",
 	telegram: {
 		username: process.env.TELEGRAM_BOT_USERNAME || "umnozavrfirstbot",
 		token: process.env.TELEGRAM_BOT_TOKEN || "6581613549:AAEdIc3zlfbTE6NLGDShrzQ-dK8Tk7ndk9w",
 	},
 	mode: "poll", // or webhook
-	webhook: {
-		domain: "umnozavrfirstbot-94768409a996.herokuapp.com",
-		url: "https://umnozavrfirstbot-94768409a996.herokuapp.com:8443",
-		port: 8443,
-		certsPath: "certs",
-		selfSigned: true
-	},
 	database: {
 		connectionString: process.env.DATABASE_URL || "postgresql://localdbuser:l0ca1DBPa$$w0rd@localhost:5432/umnozavrfirstbot"
 	},

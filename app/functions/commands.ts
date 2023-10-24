@@ -33,7 +33,7 @@ const commands = async (): Promise<void> => {
 		console.log(token);
 		const urlButton = Markup.button.url(
 			translate("welcome_button", {}, language_code),
-			`https://example.com?token=${token}`,
+			`${config.homepage}?token=${token}`,
 		);
 		const keyboard = Markup.inlineKeyboard([urlButton]);
 		ctx.telegram.sendMessage(
