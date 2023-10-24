@@ -1,8 +1,11 @@
 {
 	"language": "English",
 	"app_name": "umnozavrfirstbot",
-	"hello": "Hello!",
+	"website_welcome_message": "Hello, {name}!",
 	"welcome_message": "Welcome {name}! Click the button to open our website:",
 	"welcome_button": "Visit website",
-	"unauthorized_error_message": "You have no access to /{command} command. If you think it is a mistake, use /report command"
+	"unauthorized_error_message": "You have no access to /{command} command. If you think it is a mistake, use /report command",
+	"generic_error_message": "An error happened, we're working on it",
+	"empty_user_error_message": "This command requires a telegram id as an argument. Example: /command 12345678",
+	"added_to_admins": "You have been added to admins list, now you can use /adminhello command"
 }

@@ -1,7 +1,7 @@
-import bot from './telegraf';
-import config from '@config';
-import fs from 'fs';
-import localtunnel from 'localtunnel';
+import bot from "./telegraf";
+import config from "../config";
+import fs from "fs";
+import localtunnel from "localtunnel";
 
 const launchPolling = (): void => {
 	bot.launch();

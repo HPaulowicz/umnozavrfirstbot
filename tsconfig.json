@@ -29,5 +29,5 @@
 		]
 	},
 	"include": ["app/**/*"],
-	"exclude": ["node_modules/*", "dist/*", "scripts/*", "client/*", "public/*"]
+	"exclude": ["node_modules/*", "dist/*", "scripts/*", "client/*"]
 }

@@ -1,8 +1,11 @@
 {
 	"language": "Русский",
 	"app_name": "umnozavrfirstbot",
-	"hello": "Здравствуйте, {name} !",
+	"website_welcome_message": "Здравствуйте, {name}!",
 	"welcome_message": "Добро пожаловать {name}! Нажмите кнопку чтобы перейти на наш сайт:",
 	"welcome_button": "Перейти на сайт",
-	"unauthorized_error_message": "У вас нет доступа к /{command} команде. Если вы думаете что это ошибка, используйте команду /report"
+	"unauthorized_error_message": "У вас нет доступа к /{command} команде. Если вы думаете что это ошибка, используйте команду /report",
+	"generic_error_message": "Случилась ошибка, мы работаем чтобы ее починить",
+	"empty_user_error_message": "Эта команда требует telegram id в качестве аргумента. Пример: /command 12345678",
+	"added_to_admins": "Вас добавили в администраторы, теперь вы можете использовать команду /adminhello"
 }

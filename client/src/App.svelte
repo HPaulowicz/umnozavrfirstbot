@@ -1,26 +1,22 @@
 <script>
-  export let name;
-  let gifs = [];
-  let searchTerm = "";
-
-  async function searchForGif(e) {
+  export let displayMessage = 'Loading...';
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+  const init = async () => {
     try {
-      const returnValue = await fetch(`/giphy?term=${searchTerm}`);
-      const response = await returnValue.json();
-      gifs = response.data;
+      const returnValue = await fetch(`/api/v1/welcome?token=${token}`);
+      const { message } = await returnValue.json();
+      console.log(message);
+      displayMessage = message;
     } catch (error) {
-      console.error(error);
+      const { message } = error;
+      displayMessage = message;
     }
-  }
+  };
+  init();
 </script>
 
 <style>
-  .gifs-grid {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(5, 1fr);
-  }
-
   main {
     text-align: center;
     padding: 1em;
@@ -43,18 +39,5 @@
 </style>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <div class="search-block">
-    <input type="text" placeholder="Search for gif" bind:value={searchTerm} />
-    <button on:click={searchForGif}>Search</button>
-  </div>
-  <div class="gifs">
-    {#if gifs.length > 0}
-      <div class="gifs-grid">
-        {#each gifs as gif}
-          <iframe src={gif.embed_url} title={gif.title} />
-        {/each}
-      </div>
-    {:else}No gifs to show yet{/if}
-  </div>
+  <h1>{displayMessage}</h1>
 </main>
