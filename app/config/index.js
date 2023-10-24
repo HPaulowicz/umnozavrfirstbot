@@ -3,7 +3,7 @@ module.exports = {
 	server: {
 		port: process.env.PORT || 3000,
 	},
-	homepage: process.env.HOMEPAGE || "https://umnozavrfirstbot-94768409a996.herokuapp.com",
+	homepage: process.env.HOMEPAGE || "http://example.com",
 	jwtsecret: process.env.JWT_SECRET || "jwt-secret-placeholder",
 	telegram: {
 		username: process.env.TELEGRAM_BOT_USERNAME || "",
