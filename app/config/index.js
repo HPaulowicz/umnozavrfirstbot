@@ -4,7 +4,7 @@ module.exports = {
 		port: process.env.PORT || 3000,
 	},
 	homepage: process.env.HOMEPAGE || "https://umnozavrfirstbot-94768409a996.herokuapp.com",
-	jwtsecret: process.env.JWT_SECRET,
+	jwtsecret: process.env.JWT_SECRET || 'jwt-secret-placeholder',
 	telegram: {
 		username: process.env.TELEGRAM_BOT_USERNAME,
 		token: process.env.TELEGRAM_BOT_TOKEN,
