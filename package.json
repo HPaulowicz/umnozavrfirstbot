@@ -19,8 +19,6 @@
 		"build": "tsc",
 		"test": "jest app",
 		"lint": "npm run lint-prettify && eslint . --cache --ext .ts,.js",
-		"lint-fix": "npm run lint-prettify && eslint . --cache --ext .ts,.js --fix",
-		"lint-prettify": "prettier --write --ignore-unknown '**/*.{ts,md,json}'",
 		"typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
 	},
 	"dependencies": {

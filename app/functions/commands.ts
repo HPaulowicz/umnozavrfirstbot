@@ -57,9 +57,9 @@ const adminCommands = async (): Promise<void> => {
 				from: { id, language_code },
 			},
 		} = ctx;
-		const [ admin ] = await dataSource.query(
+		const [admin] = await dataSource.query(
 			"SELECT telegram_id, permissions, valid_from, valid_to FROM admins WHERE telegram_id = $1 AND (valid_to > CURRENT_TIMESTAMP OR valid_to IS NULL) AND valid_from <= CURRENT_TIMESTAMP AND deleted_at IS NULL",
-			[ id ]
+			[id],
 		);
 		if (admin && admin.permissions.includes(command)) {
 			next();
