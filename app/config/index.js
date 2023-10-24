@@ -4,14 +4,14 @@ module.exports = {
 		port: process.env.PORT || 3000,
 	},
 	homepage: process.env.HOMEPAGE || "https://umnozavrfirstbot-94768409a996.herokuapp.com",
-	jwtsecret: process.env.JWT_SECRET || "ILAGdv%AAEdIc3zlfbTE6NLGDShrzQdK8Tk7ndk9w",
+	jwtsecret: process.env.JWT_SECRET,
 	telegram: {
-		username: process.env.TELEGRAM_BOT_USERNAME || "umnozavrfirstbot",
-		token: process.env.TELEGRAM_BOT_TOKEN || "6581613549:AAEdIc3zlfbTE6NLGDShrzQ-dK8Tk7ndk9w",
+		username: process.env.TELEGRAM_BOT_USERNAME,
+		token: process.env.TELEGRAM_BOT_TOKEN,
 	},
 	mode: "poll", // or webhook
 	database: {
-		connectionString: process.env.DATABASE_URL || "postgresql://localdbuser:l0ca1DBPa$$w0rd@localhost:5432/umnozavrfirstbot"
+		connectionString: process.env.DATABASE_URL,
 	},
 	debug: true,
 	log: {
