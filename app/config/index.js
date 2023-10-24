@@ -1,7 +1,7 @@
 module.exports = {
 	fallbackLanguageCode: "en",
 	server: {
-		port: process.env.SERVER_PORT || 5000,
+		port: process.env.PORT || 3000,
 	},
 	homepage: process.env.HOMEPAGE || "https://umnozavrfirstbot-94768409a996.herokuapp.com",
 	jwtsecret: process.env.JWT_SECRET || "ILAGdv%AAEdIc3zlfbTE6NLGDShrzQdK8Tk7ndk9w",
